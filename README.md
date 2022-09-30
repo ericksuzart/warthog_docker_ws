@@ -1,6 +1,6 @@
-# Docker based ROS repository
+# Warthog tutorials workspace
 
-This repository contains a Dockerfile that can be used to build a Docker image that contains the necessary software to run the projects in the course ENGC68. Therefore, you will need to install Docker on your computer.
+This repository contains the source code for the tutorials on the [Warthog website](http://www.clearpathrobotics.com/assets/guides/noetic/warthog/).
 
 ## Building the image
 
@@ -8,7 +8,7 @@ To build the image, run the following command:
 
     ./build.sh
 
-This will build the image and tag it as `ros1:topicos-atvd`.
+This will build the image and tag it as `ros1:warthog-tutorials`.
 
 ## Running the image
 

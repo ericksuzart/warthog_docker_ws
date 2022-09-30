@@ -33,7 +33,9 @@ ENV LANG=en_US.UTF-8 \
 
 # install ROS packages
 RUN sudo apt install -y \
-        tree
+    ros-noetic-warthog-desktop \
+    ros-noetic-warthog-simulator \
+    tree
 
 RUN mkdir -p /workspace/src && \
     cd /workspace/src && \

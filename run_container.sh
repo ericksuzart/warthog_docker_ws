@@ -16,7 +16,7 @@ fi
 echo "Done."
 echo "Running docker..."
 
-BASEDIR=$(dirname $0)
+BASEDIR=$(pwd -P)
 
 # Define Docker volumes and environment variables
 DOCKER_VOLUMES="
@@ -42,7 +42,6 @@ DOCKER_CONFIG="
     --ipc=host \
     --privileged \
     --runtime=nvidia \
-    --user=$(id -u $USER):$(id -g $USER) \
 "
 
 DOCKER_ARGS=${DOCKER_VOLUMES}" "${DOCKER_ENV_VARS}" "${DOCKER_CONFIG}

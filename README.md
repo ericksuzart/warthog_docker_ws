@@ -8,7 +8,7 @@ To build the image, run the following command:
 
     ./build.sh
 
-This will build the image and tag it as `ros1:warthog-tutorials`.
+This will build the image and tag it as `ros1:cpr_warthog_ws`.
 
 ## Running the image
 

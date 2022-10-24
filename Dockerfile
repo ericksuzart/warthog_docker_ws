@@ -7,17 +7,6 @@ LABEL app="ros1" \
       description="Imagem contendo os pacotes referentes ao Warthog" \
       maintainer="Erick Suzart Souza"
 
-# ENV DEBIAN_FRONTEND=noninteractive
-# RUN apt-get update \
-#    && apt-get -y install --no-install-recommends <your-package-list-here> \
-#    #
-#    # Clean up
-#    && apt-get autoremove -y \
-#    && apt-get clean -y \
-#    && rm -rf /var/lib/apt/lists/*
-# ENV DEBIAN_FRONTEND=dialog
-
-
 ENV DEBIAN_FRONTEND=noninteractive
 
 # install tools
@@ -45,10 +34,13 @@ RUN sed -i 's/DEFAULT_TIMEOUT_SIGTERM = 2.0 #seconds/DEFAULT_TIMEOUT_SIGTERM = 1
 COPY src /workspace/src
 
 RUN mkdir -p /workspace/src && \
-    cd /workspace/src && \
     source /opt/ros/noetic/setup.bash && \
     cd /workspace && \
-    catkin build
+    apt update && \
+    # rosdep install --from-paths src --ignore-src -r -y && \
+    catkin build && \
+    source /workspace/devel/setup.bash && \
+    rosdep install --from-paths src --ignore-src -y --os=ubuntu:focal
 
 WORKDIR /workspace
 

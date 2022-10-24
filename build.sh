@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t ros1:warthog-tutorials .devcontainer 
+docker build -t ros1:cpr_warthog_ws .

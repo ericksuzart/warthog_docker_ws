@@ -26,7 +26,7 @@ DOCKER_VOLUMES="
     --volume="/etc/passwd:/etc/passwd:ro" \
     --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
-    --volume="${BASEDIR}/src":"/workspace/src/packages":rw \
+    --volume="${BASEDIR}/src":"/workspace/src":rw \
 "
 
 DOCKER_ENV_VARS="

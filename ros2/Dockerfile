@@ -31,10 +31,15 @@ ENV DEBIAN_FRONTEND=dialog
 
 COPY src /workspace/src
 
+# Install dependencies
 RUN cd /workspace && \
     source /opt/ros/humble/setup.bash && \
     apt update && \
-    rosdep install --from-paths src --ignore-src -r -y && \
+    rosdep install --from-paths src --ignore-src -r -y
+
+# Build the workspace
+RUN cd /workspace && \
+    source /opt/ros/humble/setup.bash && \
     colcon build
 
 WORKDIR /workspace

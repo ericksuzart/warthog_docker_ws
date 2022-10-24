@@ -32,10 +32,15 @@ RUN sed -i 's/DEFAULT_TIMEOUT_SIGTERM = 2.0 #seconds/DEFAULT_TIMEOUT_SIGTERM = 1
 
 COPY src /workspace/src
 
+# Install dependencies
 RUN cd /workspace && \
     source /opt/ros/noetic/setup.bash && \
     apt update && \
-    rosdep install --from-paths src --ignore-src -r -y && \
+    rosdep install --from-paths src --ignore-src -r -y
+
+# Build the workspace
+RUN cd /workspace && \
+    source /opt/ros/noetic/setup.bash && \
     catkin build
 
 WORKDIR /workspace

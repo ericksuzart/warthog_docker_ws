@@ -1,4 +1,4 @@
-FROM osrf/ros:noetic-desktop-full
+FROM osrf/ros:humble-desktop-full
 
 SHELL ["/bin/bash", "-c"]
 
@@ -13,13 +13,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
     sudo apt install -y --no-install-recommends \
         wget \
-        git \
         python3-pip \
         locales \
         tree \
         locate \
         software-properties-common && \
-    sudo pip3 install -U catkin_tools && \
     # clean up
     apt autoremove -y && \
     apt clean -y && \
@@ -28,16 +26,16 @@ RUN apt update && \
 ENV DEBIAN_FRONTEND=dialog
 
 # Modify the gazebo kill timeout
-RUN sed -i 's/DEFAULT_TIMEOUT_SIGTERM = 2.0 #seconds/DEFAULT_TIMEOUT_SIGTERM = 1.0 #seconds/g' /opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py && \
-    sed -i 's/DEFAULT_TIMEOUT_SIGINT  = 15.0 #seconds/DEFAULT_TIMEOUT_SIGINT  = 1.0 #seconds/g' /opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py
+# RUN sed -i 's/DEFAULT_TIMEOUT_SIGTERM = 2.0 #seconds/DEFAULT_TIMEOUT_SIGTERM = 1.0 #seconds/g' /opt/ros/humble/lib/python3/dist-packages/roslaunch/nodeprocess.py && \
+#     sed -i 's/DEFAULT_TIMEOUT_SIGINT  = 15.0 #seconds/DEFAULT_TIMEOUT_SIGINT  = 1.0 #seconds/g' /opt/ros/humble/lib/python3/dist-packages/roslaunch/nodeprocess.py
 
 COPY src /workspace/src
 
 RUN cd /workspace && \
-    source /opt/ros/noetic/setup.bash && \
+    source /opt/ros/humble/setup.bash && \
     apt update && \
     rosdep install --from-paths src --ignore-src -r -y && \
-    catkin build
+    colcon build
 
 WORKDIR /workspace
 

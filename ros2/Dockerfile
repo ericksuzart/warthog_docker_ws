@@ -2,9 +2,9 @@ FROM osrf/ros:humble-desktop-full
 
 SHELL ["/bin/bash", "-c"]
 
-LABEL app="ros1" \
+LABEL app="ros2" \
       version="cpr_warthog_ws" \
-      description="Imagem contendo os pacotes referentes ao Warthog" \
+      description="Imagem contendo os pacotes para integrar com o Warthog em ROS2" \
       maintainer="Erick Suzart Souza"
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -25,16 +25,15 @@ RUN apt update && \
 
 ENV DEBIAN_FRONTEND=dialog
 
-# Modify the gazebo kill timeout
-# RUN sed -i 's/DEFAULT_TIMEOUT_SIGTERM = 2.0 #seconds/DEFAULT_TIMEOUT_SIGTERM = 1.0 #seconds/g' /opt/ros/humble/lib/python3/dist-packages/roslaunch/nodeprocess.py && \
-#     sed -i 's/DEFAULT_TIMEOUT_SIGINT  = 15.0 #seconds/DEFAULT_TIMEOUT_SIGINT  = 1.0 #seconds/g' /opt/ros/humble/lib/python3/dist-packages/roslaunch/nodeprocess.py
-
 COPY src /workspace/src
 
-# Install dependencies
+# Install dependencies and ros packages
 RUN cd /workspace && \
     source /opt/ros/humble/setup.bash && \
     apt update && \
+    # Install NAV2
+    sudo apt install -y \
+    ros-humble-navigation2 && \
     rosdep install --from-paths src --ignore-src -r -y
 
 # Build the workspace

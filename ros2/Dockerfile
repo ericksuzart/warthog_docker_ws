@@ -33,7 +33,8 @@ RUN cd /workspace && \
     apt update && \
     # Install NAV2
     sudo apt install -y \
-    ros-humble-navigation2 && \
+        ros-humble-navigation2 \
+        ros-humble-nav2-bringup && \
     rosdep install --from-paths src --ignore-src -r -y
 
 # Build the workspace

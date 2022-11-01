@@ -1,9 +1,8 @@
-[submodule "ros1/src/warthog"]
-	path = ros1/src/warthog
+[submodule "ros1-cpr_warthog/src/warthog"]
 	url = https://github.com/warthog-cpr/warthog
-[submodule "ros1/src/warthog_desktop"]
-	path = ros1/src/warthog_desktop
+[submodule "ros1-cpr_warthog/src/warthog_desktop"]
 	url = https://github.com/warthog-cpr/warthog_desktop
-[submodule "ros1/src/warthog_simulator"]
-	path = ros1/src/warthog_simulator
+[submodule "ros1-cpr_warthog/src/warthog_simulator"]
 	url = https://github.com/warthog-cpr/warthog_simulator
+[submodule "ros2-humble-ros1_bridge/src/ros1_bridge"]
+	url = https://github.com/ros2/ros1_bridge

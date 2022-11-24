@@ -30,6 +30,22 @@ ENV DEBIAN_FRONTEND=dialog
 RUN sed -i 's/DEFAULT_TIMEOUT_SIGTERM = 2.0 #seconds/DEFAULT_TIMEOUT_SIGTERM = 1.0 #seconds/g' /opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py && \
     sed -i 's/DEFAULT_TIMEOUT_SIGINT  = 15.0 #seconds/DEFAULT_TIMEOUT_SIGINT  = 1.0 #seconds/g' /opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py
 
+# bir-warthog dependencies
+RUN apt update && \
+    sudo apt install -y --no-install-recommends \
+    ros-noetic-hector-gazebo-plugins \ 
+    ros-noetic-pointcloud-to-laserscan \
+    libpcap-dev \
+    ros-noetic-teleop-twist-keyboard \
+    ros-noetic-interactive-marker-twist-server \
+    ros-noetic-robot-localization \
+    ros-noetic-twist-mux \
+    ros-noetic-hector-models \
+    ros-noetic-py-trees* \
+    ros-noetic-rqt-py-trees \
+    ros-noetic-navigation \
+    ros-noetic-rtabmap*
+
 COPY src /workspace/src
 
 # Install dependencies

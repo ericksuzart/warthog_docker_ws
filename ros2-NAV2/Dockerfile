@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-c"]
 
 LABEL app="ros2" \
       version="cpr_warthog_ws" \
-      description="Imagem contendo os pacotes para integrar com o Warthog em ROS2" \
+      description="Imagem contendo o pacote de navegação para integrar com o Warthog em ROS2" \
       maintainer="Erick Suzart Souza"
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -19,30 +19,26 @@ RUN apt update && \
         locate \
         software-properties-common && \
     # clean up
-    apt autoremove -y && \
-    apt clean -y && \
-    rm -rf /var/lib/apt/lists/*
+    apt clean -y
 
 ENV DEBIAN_FRONTEND=dialog
 
 COPY src /workspace/src
+COPY ros_entrypoint.sh /
+WORKDIR /workspace
 
 # Install dependencies and ros packages
-RUN cd /workspace && \
-    source /opt/ros/humble/setup.bash && \
+RUN source /opt/ros/humble/setup.bash && \
     apt update && \
     # Install NAV2
     sudo apt install -y \
-        ros-humble-navigation2 \
+        ros-humble-navigation2 \    
         ros-humble-nav2-bringup && \
     rosdep install --from-paths src --ignore-src -r -y
 
 # Build the workspace
-RUN cd /workspace && \
-    source /opt/ros/humble/setup.bash && \
-    colcon build
-
-WORKDIR /workspace
+RUN source /opt/ros/humble/setup.bash && \
+    colcon build --symlink-install
 
 ENTRYPOINT [ "/ros_entrypoint.sh" ]
 CMD ["/bin/bash"]

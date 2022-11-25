@@ -49,7 +49,7 @@ DOCKER_ARGS=${DOCKER_VOLUMES}" "${DOCKER_ENV_VARS}" "${DOCKER_CONFIG}
 
 docker run -it \
     ${DOCKER_ARGS} \
-    ros2:humble-ros1_bridge \
+    ros2:cpr_warthog_ws \
     bash
 
 echo "Finished."

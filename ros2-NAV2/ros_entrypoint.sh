@@ -2,7 +2,7 @@
 set -e
 
 # Source ROS and Colcon workspaces.
-source /opt/ros/humble/install/local_setup.bash
+source /opt/ros/humble/setup.bash
 echo "Sourced ROS humble workspace."
 
 # Source the workspace.

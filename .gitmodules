@@ -1,18 +1,27 @@
 [submodule "ros1-cpr_warthog/src/warthog"]
 	url = https://github.com/warthog-cpr/warthog
+	path = ros1-cpr_warthog/src/warthog
 [submodule "ros1-cpr_warthog/src/warthog_desktop"]
 	url = https://github.com/warthog-cpr/warthog_desktop
+	path = ros1-cpr_warthog/src/warthog_desktop
 [submodule "ros1-cpr_warthog/src/warthog_simulator"]
 	url = https://github.com/warthog-cpr/warthog_simulator
+	path = ros1-cpr_warthog/src/warthog_simulator
 [submodule "ros1-cpr_warthog/src/bir_warthog"]
 	url = https://github.com/Brazilian-Institute-of-Robotics/bir_warthog
+	path = ros1-cpr_warthog/src/bir_warthog
 [submodule "ros1-cpr_warthog/src/bir_warthog_dep/mbf_recovery_behaviors"]
 	url = https://github.com/uos/mbf_recovery_behaviors.git
+	path = ros1-cpr_warthog/src/bir_warthog_dep/mbf_recovery_behaviors
 [submodule "ros1-cpr_warthog/src/bir_warthog_dep/move_base_flex"]
 	url = https://github.com/magazino/move_base_flex.git
+	path = ros1-cpr_warthog/src/bir_warthog_dep/move_base_flex
 [submodule "ros1-cpr_warthog/src/bir_warthog_dep/realsense_gazebo_plugin"]
 	url = https://github.com/SyrianSpock/realsense_gazebo_plugin.git
+	path = ros1-cpr_warthog/src/bir_warthog_dep/realsense_gazebo_plugin
 [submodule "ros1-cpr_warthog/src/bir_warthog_dep/timed_roslaunch"]
 	url = https://github.com/MoriKen254/timed_roslaunch.git
+	path = ros1-cpr_warthog/src/bir_warthog_dep/timed_roslaunch
 [submodule "ros1-cpr_warthog/src/bir_warthog_dep/velodyne_simulator"]
 	url = https://bitbucket.org/DataspeedInc/velodyne_simulator.git
+	path = ros1-cpr_warthog/src/bir_warthog_dep/velodyne_simulator

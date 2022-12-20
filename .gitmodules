@@ -25,3 +25,9 @@
 [submodule "ros1-cpr_warthog/src/bir_warthog_dep/velodyne_simulator"]
 	url = https://bitbucket.org/DataspeedInc/velodyne_simulator.git
 	path = ros1-cpr_warthog/src/bir_warthog_dep/velodyne_simulator
+[submodule "ros1-melodic/src/MYNT-EYE-S-SDK"]
+	url = https://github.com/slightech/MYNT-EYE-S-SDK
+	path = ros1-melodic/src/MYNT-EYE-S-SDK
+[submodule "ros2-NAV2/src/velodyne"]
+	url = https://github.com/ros-drivers/velodyne/tree/ros2
+	path = ros2-NAV2/src/velodyne

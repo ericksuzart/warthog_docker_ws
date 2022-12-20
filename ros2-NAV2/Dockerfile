@@ -32,8 +32,11 @@ RUN source /opt/ros/humble/setup.bash && \
     apt update && \
     # Install NAV2
     sudo apt install -y \
-        ros-humble-navigation2 \    
-        ros-humble-nav2-bringup && \
+        ros-humble-navigation2 \
+        ros-humble-nav2-bringup \
+        ros-humble-camera-calibration-parsers \
+        ros-humble-camera-info-manager \
+        ros-humble-launch-testing-ament-cmake && \
     rosdep install --from-paths src --ignore-src -r -y
 
 # Build the workspace

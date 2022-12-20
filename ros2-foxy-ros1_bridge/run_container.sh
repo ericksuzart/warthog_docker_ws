@@ -36,6 +36,7 @@ DOCKER_ENV_VARS="
     --env="XAUTHORITY=$XAUTH" \
     --env="NVIDIA_VISIBLE_DEVICES=all" \
     --env="NVIDIA_DRIVER_CAPABILITIES=all" \
+    --env="ROS_DOMAIN_ID=71"\
 "
 
 DOCKER_CONFIG="

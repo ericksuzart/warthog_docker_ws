@@ -40,5 +40,7 @@ RUN source /opt/ros/humble/setup.bash && \
 RUN source /opt/ros/humble/setup.bash && \
     colcon build --symlink-install
 
+ENV ROS_DOMAIN_ID=71
+
 ENTRYPOINT [ "/ros_entrypoint.sh" ]
 CMD ["/bin/bash"]

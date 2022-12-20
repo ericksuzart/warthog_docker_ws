@@ -31,3 +31,6 @@
 [submodule "ros2-NAV2/src/velodyne"]
 	url = https://github.com/ros-drivers/velodyne/tree/ros2
 	path = ros2-NAV2/src/velodyne
+[submodule "ros2-NAV2/src/image_pipeline"]
+	url = https://github.com/ros-perception/image_pipeline/tree/humble
+	path = ros2-NAV2/src/image_pipeline
